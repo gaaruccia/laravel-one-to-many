@@ -10,7 +10,7 @@
         <input type="text" name="description" value="{{$task['description']}}"><br>
         <label for="deadline">Deadline</label>
         <input type="text" name="deadline" value="{{$task['deadline']}}"><br>
-        <label for="employee_id">Nome</label>
+        <label for="employee_id">Info Employee</label>
         <select name="employee_id">
             @foreach($employee as $employe)
                 <option value="{{$employe['id']}}"
@@ -18,7 +18,7 @@
                         selected
                     @endif
                 >Nome e Cognome: {{$employe['firstname']}} {{$employe['lastname']}}
-                Data Di Nascita: {{$employe['dateOfBirth']}} 
+                Data Di Nascita: {{$employe['dateOfBirth']}}
                 Ruolo: {{$employe['role']}}</option>
              @endforeach
         </select><br>
