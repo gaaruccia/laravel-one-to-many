@@ -12,7 +12,7 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        factory(Task::class, 10)->make()
+        factory(Task::class, 20)->make()
                                 ->each(function($task){
             $employee = Employee::inRandomOrder()-> first();
             $task -> employee() -> associate($employee);
