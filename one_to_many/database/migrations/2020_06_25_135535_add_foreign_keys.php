@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaskTable extends Migration
+class AddForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateTaskTable extends Migration
      */
     public function up()
     {
-        Schema::create('task', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::table('task', function (Blueprint $table) {
+
+            $table-> foreign("employee_id", "employe")
+                  -> references("id")
+                  ->on("employee");
         });
     }
 
@@ -26,6 +28,8 @@ class CreateTaskTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task');
+        Schema::table('task', function (Blueprint $table) {
+            $table-> dropForeign("employe");
+        });
     }
 }
