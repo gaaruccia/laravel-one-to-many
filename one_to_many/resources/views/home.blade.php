@@ -3,13 +3,8 @@
     <main>
         <ul>
             @foreach($tasks as $task)
-                <li>Nome: <a href="{{route('edit', $task['id'])}}">{{$task["name"]}}</a><br>
-                    Descrizione: {{$task["description"]}}<br>
-                    Deadline: {{$task["deadline"]}}<br> 
-                    Info Employee: <br>
-                    Nome e Cognome: {{ $task -> employee -> firstname}} {{ $task -> employee -> lastname}}<br>
-                    Data Di Nascita: {{ $task -> employee -> dateOfBirth}}<br>
-                    Ruolo: {{ $task -> employee -> role}}
+                <li>
+                    Nome e Cognome: <a href="{{route('edit', $task['id'])}}">{{ $task -> employee -> firstname}} {{ $task -> employee -> lastname}}</a><br>
                 </li>
             @endforeach
         </ul>
